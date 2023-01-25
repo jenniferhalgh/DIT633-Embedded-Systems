@@ -26,7 +26,18 @@ void create_random(int *tab ){
 
 // This function takes the *tab of random numbers 
 // and creates a table with the frequency counts for these numbers 
-void count_frequency(int *tab, int *freq );
+void count_frequency(int *tab, int *freq ){
+    int count;
+    for(int i=0; i<20; i++){
+        count=0;
+        for(int j=0; j<100; j++){
+            if(tab[j]==(i+1)){
+                count++;
+            }
+        }
+        freq[i]=count;
+    }
+}
 
 void draw_histogram(int *freq){
       int i, j;
@@ -55,5 +66,12 @@ int main (void){
     create_random(table);
     for( int i = 0; i<100; i++){
         printf("%d ", table[i]);
+    }
+    count_frequency(table, frequency);
+
+    //PRINTING THE FREQUENCY
+    printf("Frequency: ");
+    for( int i = 0; i<20; i++){
+        printf("%d:%d ", i+1, frequency[i]);
     }
 }
