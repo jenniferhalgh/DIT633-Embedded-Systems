@@ -1,3 +1,7 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 1 
+// Exercise 3 
+// Submission code: XXXXXX (provided by your TA-s) 
 #include <stdio.h>
 #include <stdlib.h>  
 #include <time.h>

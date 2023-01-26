@@ -1,3 +1,7 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 1 
+// Exercise 1 
+// Submission code: XXXXXX (provided by your TA-s) 
 #include <stdio.h>
 
 int main()

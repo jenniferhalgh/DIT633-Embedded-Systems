@@ -1,3 +1,7 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 1 
+// Exercise 4, dec2bin 
+// Submission code: XXXXXX (provided by your TA-s) 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
