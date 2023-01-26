@@ -1,7 +1,7 @@
 // Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
 // Work package 1 
 // Exercise 3 
-// Submission code: XXXXXX (provided by your TA-s) 
+// Submission code: 17F2A47
 #include <stdio.h>
 #include <stdlib.h>  
 #include <time.h>
@@ -65,12 +65,12 @@ if(guess>100 || guess<1){
         if(guess==num){//if the guess was correct
             printf("\n You have guessed %d times and your guess is correct", count);
         } else if (guess<num){ //if the guess was too low
-            printf("\n Your guess is too low");
+            printf("\n You have guessed %d times. Your guess is too low.", count);
         if(count==MAX_VALUE){ //if the user has reached the max value of guesses
             printf("\n Out of guesses!" );
             }
     } else if (guess>num){ //if the guess was too high
-            printf("\n Your guess is too high");
+            printf("\n You have guessed %d times. Your guess is too high.", count);
         if(count==MAX_VALUE){ //if the user has reached the max value of guesses
             printf("\n Out of guesses!" );
             }
