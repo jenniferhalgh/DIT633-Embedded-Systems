@@ -16,7 +16,6 @@ void create_random(int *tab ){
 
     srand(time(0)); // gives the rand() function a new seed to generate a new unique number each time the program is run
 
-    printf("The random numbers are: ");
     int num[MAX]; // array with MAX indexes
 
     // for every number between 0 and 20
