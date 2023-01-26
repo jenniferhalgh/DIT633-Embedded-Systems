@@ -1,7 +1,7 @@
 // Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
 // Work package 1 
 // Exercise 4, bin2hex 
-// Submission code: XXXXXX (provided by your TA-s) 
+// Submission code: 17F2A47
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
