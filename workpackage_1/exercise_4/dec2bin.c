@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#define MAX_VALUE_LONG 4294967295 //Max value for type long
+#define MAX_VALUE_32BIT 2147483647 //Max value of a 32 bit number
+#define MAX_VALUE_16BIT 65535 //Max value of a 16 bit number
+#define MAX_VALUE_8BIT 255 //Max value of a 8 bit number
 
 int main(int argc, char *argv[])
 {
+    if(argc<2){
+        printf("%s", "Error, no arguments were provided. Input '-h' for information on how to use the program.");
+        return 2;
+    }
     //variable declarations
     long num; 
     long num2;
@@ -38,7 +46,7 @@ if(isNum==1){ //If a valid number
    sscanf(numStr, "%ld", &num);
 
    //if the number is bigger than the max value of type long
-   if(num>4294967295){
+   if(num>MAX_VALUE_LONG){
     printf("%s", "Error. The number is too big.");
     return 2;
    }
@@ -58,7 +66,7 @@ if(isNum==1){ //If a valid number
     }
 
     //if num (num2) is in the interval 0-255
-    if (num2 <= 255 && num2>=0)
+    if (num2 <= MAX_VALUE_8BIT && num2>=0)
     {
         //treat num as an 8 bit integer
         bit = 8;
@@ -70,7 +78,7 @@ if(isNum==1){ //If a valid number
         }
     } 
     //if num (num2) is in the interval 256-65535
-    else if (num2 > 255 && num2 <= 65535) {
+    else if (num2 > MAX_VALUE_8BIT && num2 <= MAX_VALUE_16BIT) {
         //treat num as a 16 bit integer
         bit = 16;
 
@@ -80,7 +88,7 @@ if(isNum==1){ //If a valid number
             binary[i] = 0;
         }
 
-    } else if(num2 > 65535 && num2 <= 2147483647){
+    } else if(num2 > MAX_VALUE_16BIT && num2 <= MAX_VALUE_32BIT){
         //treat num as a 32 bit integer
         bit = 32;
 
