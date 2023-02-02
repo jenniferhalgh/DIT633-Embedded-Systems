@@ -20,19 +20,18 @@ FILE *fp;
 PERSON input_record(void) // Reads a person’s record.
 {
     PERSON input; // an instance of PERSON
-    printf("\n Enter the first name:");
-    scanf("%s", input.firstname);
-    printf("\n Enter the last name:");
-    scanf("%s", input.famname);
+    printf("\n Enter the first name:"); 
+    scanf("%s", input.firstname); // scan the input as firstname
+    printf("\n Enter the last name:"); 
+    scanf("%s", input.famname); // scan the input as lastname
     printf("\n Enter the personnel number in format 'yyyymmddnnnc':");
-    scanf("%s", input.pers_number);
+    scanf("%s", input.pers_number); // scan the input as lastname
 
     return input; // returning instance of PERSON
 };
 
 void write_new_file(PERSON *inrecord) // Creates a file and writes the first record
 {
-
     if (access("persons.bin", F_OK) == 0) // if the file exists
     {
         if (remove("persons.bin") == 0) // if the file has been deleted
@@ -45,7 +44,7 @@ void write_new_file(PERSON *inrecord) // Creates a file and writes the first rec
             fp = fopen("persons.bin", "wb"); // Open the file in binary writing mode
             if (fp == NULL)                  // if the file was not opened
             {
-                printf("\nError: file out.bin cannot be opened\n");
+                printf("\nError: file persons.bin cannot be opened\n");
                 exit(1); // The program exited with errors.
             }
 
@@ -63,7 +62,7 @@ void write_new_file(PERSON *inrecord) // Creates a file and writes the first rec
     else // if the file does not exist
     {
         fp = fopen("persons.bin", "wb"); // Open the file in binary writing mode
-            printf("Error: file out.bin cannot be opened\n");
+            printf("Error: file persons.bin cannot be opened\n");
             printf("Try again");
             exit(1); // The program exited with errors.
         
@@ -72,11 +71,11 @@ void write_new_file(PERSON *inrecord) // Creates a file and writes the first rec
 
 void printfile(void) // Prints out all persons in the file
 {
-    PERSON record;
+    PERSON record; // an instance of PERSON
     fp = fopen("persons.bin", "rb"); // Open the file in binary writing mode
     if (fp == NULL)                  // if the file was not opened
     {
-        printf("Error: file out.bin cannot be opened\n");
+        printf("Error: file persons.bin cannot be opened\n");
         exit(1); // The program exited with errors.
     }
 
@@ -92,10 +91,10 @@ void printfile(void) // Prints out all persons in the file
 
 void search_by_firstname(char *name) // Prints out the person if in list
 {
-    int personFound = 0;
-    PERSON person;
+    int personFound = 0; // int variable personFound has value 0
+    PERSON person; // an instance of PERSON
 
-    fp = fopen("persons.bin", "rb"); // Open the file in binary writing mode
+    fp = fopen("persons.bin", "rb"); // Open the file in binary reading mode
     if (fp == NULL)                  // if the file was not opened
     {
         printf("File could not open");
@@ -103,7 +102,7 @@ void search_by_firstname(char *name) // Prints out the person if in list
     }
 
     printf("\n Enter the name:");
-    scanf("%s", name);
+    scanf("%s", name); // the input scanned is the name
 
     // read the file
     while ((fread(&person, sizeof(PERSON), 1, fp)))
@@ -122,7 +121,6 @@ void search_by_firstname(char *name) // Prints out the person if in list
 
 void append_file(PERSON *inrecord) // appends a new person to the file
 {
-    char moreRecords;
     fp = fopen("persons.bin", "ab"); // Open the file in binary appending mode
     if (fp == NULL)                  // if the file was not opened
     {
@@ -138,6 +136,7 @@ void append_file(PERSON *inrecord) // appends a new person to the file
 int main(void)
 {
     PERSON ppost;
+    // variable declarations
     int num;
     char ans;
     char fname;
@@ -148,7 +147,7 @@ int main(void)
     printf("3. Search for a person in the file.\n");
     printf("4. Print out all in the file.\n");
     printf("5. Exit the program.\n");
-    scanf("%d", &num);
+    scanf("%d", &num); // the input scanned is the num
 
     switch (num) // based on the value of num, one of the following cases will take place
     {
@@ -172,7 +171,7 @@ int main(void)
                 scanf("%s", &ans);
                 if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
                 {
-                    main();
+                    main(); // call the main function
                 }
                 else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
                 {
@@ -184,15 +183,15 @@ int main(void)
         }
         break;
     case 2:
-        ppost = input_record();
-        append_file(&ppost);
+        ppost = input_record(); // ppost is equal to function input_record()
+        append_file(&ppost); // giving the address of ppost in the method
         printf("\nDo you want to go back to the main menu?\nY/N?");
         scanf("%s", &ans);
-        if (strcasecmp(&ans, "Y") == 0)
+        if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
         {
-            main();
+            main(); // call the main function
         }
-        else if (strcasecmp(&ans, "N") == 0)
+        else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
         {
             break;
         }
@@ -202,27 +201,28 @@ int main(void)
             {
                 printf("Not a valid answer, either give a Y / y or N / n\n");
                 scanf("%s", &ans);
-                if (strcasecmp(&ans, "Y") == 0)
+                if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
                 {
-                    main();
+                    main(); // call the main function
                 }
-                else if (strcasecmp(&ans, "N") == 0)
+                else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
                 {
                     printf("Program exited");
                     exit(0); // The program exited without any errors.
                 }
+                // The while condition states that the value of ans must not be Y/y or N/n
             } while (strcasecmp(&ans, "Y") != 0 || strcasecmp(&ans, "N") != 0);
         }
         break;
     case 3:
-        search_by_firstname(&fname);
+        search_by_firstname(&fname); // giving the address of fname in the method
         printf("\nDo you want to go back to the main menu?\nY/N?");
         scanf("%s", &ans);
-        if (strcasecmp(&ans, "Y") == 0)
+        if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
         {
-            main();
+            main(); // call the main function
         }
-        else if (strcasecmp(&ans, "N") == 0)
+        else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
         {
             break;
         }
@@ -232,15 +232,16 @@ int main(void)
             {
                 printf("Not a valid answer, either give a Y / y or N / n\n");
                 scanf("%s", &ans);
-                if (strcasecmp(&ans, "Y") == 0)
+                if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
                 {
-                    main();
+                    main(); // call the main function
                 }
-                else if (strcasecmp(&ans, "N") == 0)
+                else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
                 {
                     printf("Program exited");
                     exit(0); // The program exited without any errors.
                 }
+                // The while condition states that the value of ans must not be Y/y or N/n
             } while (strcasecmp(&ans, "Y") != 0 || strcasecmp(&ans, "N") != 0);
         }
         break;
@@ -248,11 +249,11 @@ int main(void)
         printfile();
         printf("\nDo you want to go back to the main menu?\nY/N?");
         scanf("%s", &ans);
-        if (strcasecmp(&ans, "Y") == 0)
+        if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
         {
-            main();
+            main(); // call the main function
         }
-        else if (strcasecmp(&ans, "N") == 0)
+        else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
         {
             break;
         }
@@ -261,21 +262,22 @@ int main(void)
             do
             {
                 printf("Not a valid answer, either give a Y / y or N / n\n");
-                scanf("%s", &ans);
-                if (strcasecmp(&ans, "Y") == 0)
+                scanf("%s", &ans); 
+                if (strcasecmp(&ans, "Y") == 0) // if ans is Y or y
                 {
-                    main();
+                    main(); // call the main function
                 }
-                else if (strcasecmp(&ans, "N") == 0)
+                else if (strcasecmp(&ans, "N") == 0) // if ans is N or n
                 {
                     printf("Program exited");
                     exit(0); // The program exited without any errors.
                 }
+                // The while condition states that the value of ans must not be Y/y or N/n
             } while (strcasecmp(&ans, "Y") != 0 || strcasecmp(&ans, "N") != 0);
         }
         break;
     case 5:
-        printf("Program exited"); // maybe ask for "are you sure"
+        printf("Program exited"); 
         break;
 
     default:
