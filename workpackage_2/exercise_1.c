@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 
-#define MAX 99
+#define MAX 99 //Max number in the range for x and y
 
 enum DIRECTION {N,O,S,W}; //Enum for directions (North, South, West and East)
  
@@ -51,14 +51,13 @@ void turn(enum DIRECTION *direction){
 
 int main() {
     int playAgain = false;
-    char answer[10];
-
+    char answer[10]; ////Declare answer with 10 elements (chosen randomly)
 
     do{
     ROBOT position; //Declare position
-    char walk[100]; //Declare walk
+    char walk[100]; //Declare walk, 100 is chosen randomly
     bool correctLetters; //Declare correctLetters
-    char numStr[100];
+    char numStr[2]; //Declare numStr with 2 elements since max digits is 2 (max num is 99)
     printf("Please provide the starting position in x (0-99): ");
     //save x in position.xpos
     scanf("%d", &position.xpos);

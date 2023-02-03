@@ -14,10 +14,11 @@ int main(int argc, char *argv[])
     }
 
     const char hex[] = "0123456789ABCDEF"; //Initializing array of the possible remainder chars for the hexadecimal
-    char hexadecimal[2]; //Declaring the hexadecimal varible with 2 bits since 8 bits in binary corresponds to 2 bits in hexadecimal
+    char hexadecimal[2]; //Declaring the hexadecimal varible with 2 elements
     int validChar=0; //Initializing variable that will hold a true (1) or false (0) value
     unsigned char byte=0; //Initializing byte variable
     int values[5];//Declaring variable that will hold the 5 value
+    int decimal=0;//Initializing variable that will hold the 5 value
 
     //Save the argument in the hexadecimal variable
     sscanf(argv[1], "%s", hexadecimal);
@@ -39,8 +40,30 @@ int main(int argc, char *argv[])
     }
     }
 
-    //conver the hexadecimal to a long int in decimal form
-    byte = strtol(hexadecimal, NULL, 16);
+    //for every char in hexadecimal
+    for (int i = 0; i < strlen(hexadecimal); i++)
+    {
+        //for every value in the hex array
+        for (int j = 0; j < strlen(hex); j++)
+        {
+            //find the index where the char in hexadecimal is equal to a char in hex
+            if (hexadecimal[i] == hex[j])
+            {
+                //Multiply the index by 16^x, x being the value's index in the hexadecimal number, and add the value to decimal
+                decimal = decimal + (j * pow(16, strlen(hexadecimal) - 1 - i));
+                break;
+            }
+        }
+    }
+    
+    //While decimal is bigger than 0
+    for (int i = 0; 0 < decimal; i++)
+    {
+        // Divide decimal with 2 and put the remainder in index i in the binary array
+        byte = byte | (char) (decimal % 2) <<(i);
+        // Decrease decimal by half
+        decimal = decimal / 2;
+    }
 
     //For each index in from 0-4 (5 values in the table)
     for(int i = 0; i < 5; i++){
