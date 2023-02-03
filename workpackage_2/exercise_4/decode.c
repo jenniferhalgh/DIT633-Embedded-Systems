@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     //While decimal is bigger than 0
     for (int i = 0; 0 < decimal; i++)
     {
-        // Divide decimal with 2 and put the remainder in index i in the binary array
+        // Divide decimal with 2 and put the remainder in index i in the byte variable by left shifting i times
         byte = byte | (char) (decimal % 2) <<(i);
         // Decrease decimal by half
         decimal = decimal / 2;
