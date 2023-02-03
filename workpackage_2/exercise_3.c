@@ -39,7 +39,7 @@ void write_new_file(PERSON *inrecord) // Creates a file and writes the first rec
             printf("\nThe old file has been deleted successfully.");
             strcpy(inrecord[0].firstname, "Sadhana");        // add first name in index 0
             strcpy(inrecord[0].famname, "Anandan");          // add last name in index 0
-            strcpy(inrecord[0].pers_number, "20020606xxxx"); // add personnel number in index 0
+            strcpy(inrecord[0].pers_number, "200206061111"); // add personnel number in index 0
 
             fp = fopen("persons.bin", "wb"); // Open the file in binary writing mode
             if (fp == NULL)                  // if the file was not opened
