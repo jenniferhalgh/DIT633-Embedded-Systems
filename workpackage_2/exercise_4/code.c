@@ -1,6 +1,6 @@
 // Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
 // Work package 2 
-// Exercise 4-code
+// Exercise 4 - code.c
 // Submission code: 180DC4E
 #include <stdio.h>
 #include <string.h>
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     if (argc > 6 || argc < 6)
     {
         printf("Error, number of arguments incorrect. Provide 5 arguments.");
-        return 1;
+        return 2;
     }
 
     unsigned char byte; //declaring variable byte where the bits will be packed into

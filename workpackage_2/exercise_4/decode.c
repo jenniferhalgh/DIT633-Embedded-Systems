@@ -1,6 +1,6 @@
 // Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
 // Work package 2 
-// Exercise 4-decode
+// Exercise 4 - decode.c
 // Submission code: 180DC4E
 #include <stdio.h>
 #include <string.h>
@@ -14,15 +14,15 @@ int main(int argc, char *argv[])
     if (argc > 2 || argc < 2)
     {
         printf("Error, number of arguments incorrect. Provide 1 argument.");
-        return 1;
+        return 2;
     }
 
     const char hex[] = "0123456789ABCDEF"; //Initializing array of the possible remainder chars for the hexadecimal
     char hexadecimal[2]; //Declaring the hexadecimal varible with 2 elements
     int validChar=0; //Initializing variable that will hold a true (1) or false (0) value
     unsigned char byte=0; //Initializing byte variable
-    int values[5];//Declaring variable that will hold the 5 value
-    int decimal=0;//Initializing variable that will hold the 5 value
+    char values[5];//Declaring variable that will hold the 5 values
+    int decimal=0;//Initializing decimal which will hold the binary representation in decimal form
 
     //Save the argument in the hexadecimal variable
     sscanf(argv[1], "%s", hexadecimal);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     //If the hexadecimal number is invalid, print error message and exit program
     if(!validChar){
         printf("Error, invalid hexadecimal number.");
-        return 1;
+        return 2;
     }
     }
 
@@ -75,18 +75,19 @@ int main(int argc, char *argv[])
             //right shift the byte with 7 to get the first number in byte
             values[i] = byte>>7;
             //if the value is out of range print error message and exit program
-            if(values[i]>1){
+            if(values[i]>1 || values[i]<0){
                 printf("Invalid hexadecimal number. The number results in a value out of range.");
                 return 2;
-            }
+            } 
             //left shift byte by one to remove the number that has been assigned to values[i]
             byte = byte<<1;
+            
         }
         if(i==2){
             //right shift the byte with 6 to get the first 2 numbers in byte
             values[i] = byte>>6;
             //if the value is out of range print error message and exit program
-            if(values[i]>2){
+            if(values[i]>2 || values[i]<0){
                 printf("Invalid hexadecimal number. The number results in a value out of range.");
                 return 2;
             }
@@ -97,7 +98,7 @@ int main(int argc, char *argv[])
             //right shift the byte with 5 to get the first 3 numbers in byte
             values[i] = byte>>5;
             //if the value is out of range print error message and exit program
-            if(values[i]>4){
+            if(values[i]<0 || values[i]>4){
                 printf("Invalid hexadecimal number. The number results in a value out of range.");
                 return 2;
             }
@@ -106,6 +107,7 @@ int main(int argc, char *argv[])
         }
         
     }
+    
 
     //Print the table with the values
     printf("Name         Value    \n----------------------------- \n");
