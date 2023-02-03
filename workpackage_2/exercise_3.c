@@ -1,3 +1,7 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 2 
+// Exercise 3
+// Submission code: 180DC4E
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
