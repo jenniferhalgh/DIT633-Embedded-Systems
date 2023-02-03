@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+#define MAX 99
+
 enum DIRECTION {N,O,S,W}; //Enum for directions (North, South, West and East)
  
 //Struct ROBOT with attributes xpos, ypos and dir
@@ -61,7 +63,7 @@ int main() {
     //save x in position.xpos
     scanf("%d", &position.xpos);
     //Check that x is in the right interval (0-99)
-    if(position.xpos>99 || position.xpos<0){
+    if(position.xpos>MAX || position.xpos<0){
         printf("The number must be in the interval 0-99.");
         return 2;
     } 
