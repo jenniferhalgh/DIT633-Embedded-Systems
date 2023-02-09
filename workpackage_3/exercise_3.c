@@ -8,9 +8,7 @@ void setup()
 
 void loop()
 {
-  //Voltage at pin in milliVolts = (reading from ADC) * (5000/1024) 
-  //Centigrade temperature = [(analog voltage in mV) - 500] / 10
-  int vout = analogRead(TEMPPIN);
+  int vout = analogRead(TEMPPIN);//Read value from temppin
   float voltage = vout * 5; //multiply with 5 since we're using a 5V
   voltage/=1024; //divide with 1024 becaue the analog value is in the interval 0-1023
   voltage=voltage*1000; //turn the voltage to mV unit
