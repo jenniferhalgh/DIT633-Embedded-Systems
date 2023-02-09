@@ -3,7 +3,7 @@
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(9600);//passing 9600 in the speed parameter to exchange messages with the Serial Monitor at a data rate of 9600 bits per second
 }
 
 void loop()
