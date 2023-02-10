@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 3 
+// Exercise 1
+// Submission code: 1828E55
+
 // declared variables 
 int buttonState = 0;
 #define BUTTONPIN 2

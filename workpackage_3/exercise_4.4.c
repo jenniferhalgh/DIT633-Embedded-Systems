@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 3 
+// Exercise 4.4
+// Submission code: 1828E55
+
 const int row1 = 11; // digital pin for steering row 1
 const int row2 = 10; // digital pin for steering row 2
 const int row3 = 9; // digital pin for steering row 3

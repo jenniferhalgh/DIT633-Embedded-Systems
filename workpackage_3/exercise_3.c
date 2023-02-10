@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 3 
+// Exercise 3
+// Submission code: 1828E55
+
 #define TEMPPIN A0 // Analog 0
 #define PHOTORESPIN A1 // Analog 1
 #define GREENLED 2 // Pin 2

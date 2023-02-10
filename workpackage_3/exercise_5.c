@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 3 
+// Exercise 5
+// Submission code: 1828E55
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

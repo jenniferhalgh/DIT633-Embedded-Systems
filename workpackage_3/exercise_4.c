@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 3 
+// Exercise 4
+// Submission code: 1828E55
+
 #include <Keypad.h>
 
 const byte ROWS = 4; // four rows
