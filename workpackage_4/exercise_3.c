@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 4 
+// Exercise 3
+// Submission code: 17E2E8A
+
 //include library for the LED strip
 #include <Adafruit_NeoPixel.h>
 

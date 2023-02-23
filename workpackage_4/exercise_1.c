@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 4 
+// Exercise 1
+// Submission code: 17E2E8A
+
 #define ONELED 25 //the max temp for one LED
 #define TWOLED 50 //the max temp for two LED 
 #define THREELED 75 // the max temp for three LED

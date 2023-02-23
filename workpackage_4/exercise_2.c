@@ -1,5 +1,7 @@
-// C++ code
-//
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 4 
+// Exercise 2
+// Submission code: 17E2E8A
 
 #include <Servo.h>
 #define SERVOPIN A0 // Pin A0
