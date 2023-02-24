@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 5 
+// Exercise 2 
+// Submission code: 185F6BA
+
 #include <DHT.h> // DHT library
 
 #define TEMP1 25.00 //the min temp for one LED

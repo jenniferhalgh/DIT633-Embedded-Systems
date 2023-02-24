@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 5 
+// Exercise 3 
+// Submission code: 185F6BA
+
 #include <DHT.h> // 0-50 degrees
 
 #define DHTPIN A2     // data pin we're connected to
