@@ -1,5 +1,5 @@
 #include <Adafruit_NeoPixel.h>
-#include "Adafruit_Keypad.h"
+#include <Adafruit_Keypad.h>
 
 const byte ROWS = 4; // keypad rows
 const byte COLS = 4; // keypad columns
@@ -20,9 +20,9 @@ const String addresses[] = {"1365432", "A4D2143", "C21A32B", "9876543", "1234569
 
 String code = String(""); //initialize the varibale that will hold the user's code input
 
-int count = 0; //
+int count = 0; //initialize count to 0
 
-bool wrongCode = false; //
+bool wrongCode = false; //initialize wrongCode to be false
 
 void setup()
 {
@@ -34,13 +34,13 @@ void setup()
 
 void loop()
 {
-    customKeypad.tick();
+    customKeypad.tick(); //
 
-    while (customKeypad.available())
+    while (customKeypad.available()) //while the keypad is available
     {
-        keypadEvent e = customKeypad.read();
-        if (e.bit.EVENT == KEY_JUST_PRESSED)
-            code = String(code + (char)e.bit.KEY);
+        keypadEvent e = customKeypad.read(); //read the keypad for input
+        if (e.bit.EVENT == KEY_JUST_PRESSED) //if a key has been pressed
+            code = String(code + (char)e.bit.KEY); //Save it in the code varible
         Serial.println(code);
     }
 
@@ -52,9 +52,9 @@ void loop()
         
         for (int j = 0; j < code.length()+1; j++)
         {
-            if (j == 4)
+            if (j == 4) //if its the 4th dial round
             {
-                count++;
+                count++; //increase the count so the lights for the fourth digit gets increased by 2 indexes
             }
             //for each light on the neopixel
             for (int i = 0; i < 24; i++)
@@ -89,79 +89,105 @@ void loop()
                 ring.show(); // show everything
                 delay(100);
             }
-            //if its the first dial round
+            //if its after the first dial round
             if (j > 0)
             {
+                //if count is 7 
                 if (count == 7)
                 {
+                    //for each address in the address array
                     for (int i = 0; i < sizeof(addresses) / sizeof(addresses[0]); i++)
                     {
+                        //if code is equal to one of the addresses
                         if (code == addresses[i])
                         {
+                            //lock in the 7th digit on the neopixel to green
                             ring.setPixelColor(-3 + count * 3, 0, 255, 0);
                             ring.setPixelColor(-4 + count * 3, 0, 255, 0);
+                            //show the color
                             ring.show();
+                            //for each light on the neopixel
                             for (int i = 0; i < 24; i++)
                             {
+                                //set the color to green
                                 ring.setPixelColor(i, 0, 255, 0);
                                 delay(50);
+                                //show the color
                               	ring.show();
                               
                             }
-                            count = 0;
-                            break;
+                            wrongCode = false;
+                            break; //break out of the loop (addresses array) since the correct address has already been found
                         }
+                        //if the code is not correct
                         else
                         {
+                            //set wrong code to true
                             wrongCode = true;
                         }
                     }
                 }
+                //if its before the 8th dial round (but after the 1st dial round)
                 else
                 {
+                    //FOR THE FIRST LIGHT IN THE LIGHT PAIR
+                    //if count * 3 + 20 is less than 23 (count * 3 determines where the green lights are positioned) 
+                    // (less than 23 means that the light index has to be the ending lights)
                     if (20 + count * 3 <= 23)
                     {
+                        //set color to green
                         ring.setPixelColor(20 + count * 3, 0, 255, 0);
                         ring.show(); // show everything
                     }
                     else
-                    {
+                    {   
+                        //set color to green
                         ring.setPixelColor(-4 + count * 3, 0, 255, 0);
-                        ring.show();
+                        ring.show(); // show everything
                     }
-
+                    //FOR THE SECOND LIGHT IN THE LIGHT PAIR
+                    //if count * 3 + 21 is less than 23 (count * 3 determines where the green lights are positioned) 
+                    // (less than 23 means that the light index has to be the ending lights)
                     if (21 + count * 3 <= 23)
                     {
+                        //set color to green
                         ring.setPixelColor(21 + count * 3, 0, 255, 0);
                         ring.show(); // show everything
                     }
                     else
                     {
+                        //set color to green
                         ring.setPixelColor(-3 + count * 3, 0, 255, 0);
                         ring.show(); // show everything
                     }
 
-                    count++;
+                    count++; //increase the count (which will help position the next pair of lights in the right indexes)
                 }
             }
         }
-
+        //if it was the wrong code
         if (wrongCode)
         {
+            //for each light in the neopixel
             for (int i = 0; i < 24; i++)
             {
+                //the the color to red
                 ring.setPixelColor(i, 255, 0, 0);
                 delay(50);
+                //show the lights
                 ring.show();
             }
         }
-        code = "";
+        count = 0; //reset the count to 0;
+        code = ""; //reset code to emtpy string
+        ////for each light in the neopixel
         for (int i = 0; i < 24; i++)
         {
+            //turn the light off
             ring.setPixelColor(i, 0, 0, 0);
             delay(50);
+            //show the light
             ring.show();
         }
-        ring.show();
     }
 }
