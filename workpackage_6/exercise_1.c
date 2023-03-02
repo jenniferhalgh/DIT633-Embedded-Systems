@@ -64,8 +64,8 @@ void loop() {
   degtarget = getInput();
   
   // Calculate initial error
-  e = degtarget - deg;
-    
+  e = deg - degtarget;   
+  
   // Loop until error is zero
   while(e){
     
@@ -93,7 +93,10 @@ void loop() {
     }
 	
     // Calculate new error
-  	e = degtarget - deg;
+  	e = deg - degtarget;
+       
+    if(!e) analogWrite(PWM2, 0);
+
     
   }
 }
@@ -140,8 +143,8 @@ void ISR_readEncoder(){
   */
     b = digitalRead(ENCB);  //reading encoder signal
     if(b>0){ //if b is bigger than 0
-        pos--; //decrease the pos
+        pos++; //decrease the pos
     } else {
-        pos++; //increase the pos
+        pos--; //increase the pos
     }
 }

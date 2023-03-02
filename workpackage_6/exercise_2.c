@@ -31,7 +31,7 @@ void loop() {
     LED(3);
   } else if(distance() < DISTTHREE && distance() > DISTFOUR){
     LED(4);
-  } else if(distance() < DISTFOUR && distance() > DISTFIVE){
+  } else if(distance() <= DISTFOUR){
     LEDBLINK();
   } else if(distance() > MAXDIST){
     LED(5);
