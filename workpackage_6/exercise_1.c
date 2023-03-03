@@ -1,4 +1,7 @@
-// WP 6 Exercise 1 Template DIT 632
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 6 
+// Exercise 1 
+// Submission code: 187A46A
 
 #define ENCA 2
 #define ENCB 3

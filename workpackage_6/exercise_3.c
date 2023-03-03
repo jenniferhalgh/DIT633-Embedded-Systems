@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 6 
+// Exercise 3
+// Submission code: 187A46A
+
 #include <Adafruit_NeoPixel.h>
 #include <Adafruit_Keypad.h>
 

@@ -1,3 +1,8 @@
+// Jennifer Hälgh & Sadhana Anandan, group: 25 (2023) 
+// Work package 6 
+// Exercise 2 
+// Submission code: 187A46A
+
 // variables declared and initialized 
 const int TRIG = 12; // arduino pin connected to Ultrasonic Sensor's TRIG pin
 const int ECHO = 13; // arduino pin connected to Ultrasonic Sensor's ECHO pin
